@@ -22,4 +22,5 @@ Make sure that this honeypot is up and running before starting your web applicat
 Installation
 ------------
 .. code-block::
+
     pip install -e.[dev]
