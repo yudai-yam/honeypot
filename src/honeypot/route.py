@@ -1,23 +1,17 @@
 from fastapi import FastAPI, Request, Response
+from src.utils.logging_config import get_logger
 import httpx
-import uvicorn
-import logging
 
 app = FastAPI()
 
-# CONFIG: real server address
-REAL_BACKEND = "http://<REAL_SERVER_IP>:8000"
+logger = get_logger(__name__)
 
-# Setup logger
-logging.basicConfig(
-    filename="honeypot.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(client_ip)s - %(message)s",
-)
+# CONFIG: real server address
+REAL_BACKEND = "http://127.0.0.1:8000"
 
 
 def log_request(client_ip, path, method, headers, body):
-    logging.info(
+    logger.info(
         "",
         extra={
             "client_ip": client_ip,
@@ -26,6 +20,7 @@ def log_request(client_ip, path, method, headers, body):
     )
 
 
+# it matches all the paths
 @app.api_route(
     "/{full_path:path}",
     methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"],
@@ -59,6 +54,3 @@ async def proxy(full_path: str, request: Request):
         headers=dict(real_response.headers),
     )
 
-
-if __name__ == "__main__":
-    uvicorn.run("honeypot:app", host="0.0.0.0", port=80)
