@@ -1,0 +1,107 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "honepot"
+version = "0.1.0"
+authors = [
+    {name="Yudai Yamase"}
+]
+description = "a honeypot for web application"
+readme = "README.rst"
+requires-python = ">=3.11, <4"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "python-dotenv==1.0.1",
+    "fastapi==0.115.12",
+    "httpx==0.28.1",
+    "univorn==0.34.2",
+]
+
+[project.scripts]
+extract = "extract.main:extract"
+build = "data_catalog.catalog_builder.main:build"
+dev = "data_catalog.main:dev"
+
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/yudai-yam/honeypot"
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst"]}
+
+[project.optional-dependencies]
+extract = [
+    "oracledb==2.4.1",
+]
+dev = [
+    "data_catalog[tox]",
+    "data_catalog[flake8]",
+    "data_catalog[black]",
+    "data_catalog[isort]",
+]
+tox = [
+    "tox==4.23.2",
+    "tox-uv==1.16.0",
+]
+flake8 = ["Flake8-pyproject==1.2.3",]
+black = ["black==24.2.0",]
+isort = ["isort==5.12.0"]
+
+
+[tool.flake8]
+max-line-length = 88
+statistics = true
+show-source = true
+exclude=[
+    'build',
+    '__pycache__',
+    '.tox',
+    'venv',
+]
+ignore =[
+    'E101',
+    'E111',
+    'E114',
+    'E115',
+    'E116',
+    'E117',
+    'E121',
+    'E122',
+    'E123',
+    'E124',
+    'E125',
+    'E126',
+    'E127',
+    'E128',
+    'E129',
+    'E131',
+    'E133',
+    'E2',
+    'E3',
+    'E5',
+    'E701',
+    'E702',
+    'E703',
+    'E704',
+    'W1',
+    'W2',
+    'W3',
+    'W503',
+    'W504',
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+ensure_newline_before_comments = true
