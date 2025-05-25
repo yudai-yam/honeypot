@@ -9,8 +9,10 @@ def main():
     setup_logging()
     get_logger(__name__)
 
+    uvicorn.run("src.honeypot.route:app", host="0.0.0.0", port=80)
+
 
 
 
 if __name__ == "__main__":
-    uvicorn.run("honeypot:app", host="0.0.0.0", port=80)
+    main()

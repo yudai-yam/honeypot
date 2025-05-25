@@ -15,7 +15,7 @@ def log_request(client_ip, path, method, headers, body):
         "",
         extra={
             "client_ip": client_ip,
-            "message": f"{method} {path}\nHeaders: {headers}\nBody: {body}\n",
+            "log_message": f"{method} {path}\nHeaders: {headers}\nBody: {body}\n",
         },
     )
 
