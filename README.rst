@@ -17,3 +17,9 @@ This honeypot is to monitor what kind of exploitations a web application experie
 Usage
 -----
 Make sure that this honeypot is up and running before starting your web application.
+
+
+Installation
+------------
+.. code-block::
+    pip install -e.[dev]
