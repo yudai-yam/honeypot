@@ -16,8 +16,12 @@ This honeypot is to monitor what kind of exploitations a web application experie
 
 Usage
 -----
-Make sure that this honeypot is up and running before starting your web application.
+Make sure that this honeypot is set to be a reverse proxy in front of the real web application. 
 
+Architecture
+------------
+.. image:: images/architecture.png
+    :width: 800
 
 Installation
 ------------
