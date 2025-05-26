@@ -20,7 +20,7 @@ Make sure that this honeypot is set to be a reverse proxy in front of the real w
 
 Architecture
 ------------
-.. image:: images/architecture.png
+.. image:: images/architecture.jpg
     :width: 800
 
 Installation
