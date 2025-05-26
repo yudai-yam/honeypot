@@ -3,29 +3,22 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "honepot"
+name = "honeypot"
 version = "0.1.0"
 authors = [
     {name="Yudai Yamase"}
 ]
 description = "a honeypot for web application"
 readme = "README.rst"
-requires-python = ">=3.11, <4"
+requires-python = ">=3.12, <4"
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "python-dotenv==1.0.1",
     "fastapi==0.115.12",
     "httpx==0.28.1",
     "uvicorn==0.34.2",
 ]
-
-[project.scripts]
-extract = "extract.main:extract"
-build = "data_catalog.catalog_builder.main:build"
-dev = "data_catalog.main:dev"
-
 
 [project.urls]  # Optional
 "Homepage" = "https://github.com/yudai-yam/honeypot"
@@ -34,14 +27,11 @@ dev = "data_catalog.main:dev"
 readme = {file = ["README.rst"]}
 
 [project.optional-dependencies]
-extract = [
-    "oracledb==2.4.1",
-]
 dev = [
-    "data_catalog[tox]",
-    "data_catalog[flake8]",
-    "data_catalog[black]",
-    "data_catalog[isort]",
+    "honeypot[tox]",
+    "honeypot[flake8]",
+    "honeypot[black]",
+    "honeypot[isort]",
 ]
 tox = [
     "tox==4.23.2",

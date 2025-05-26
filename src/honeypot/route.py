@@ -1,6 +1,7 @@
-from fastapi import FastAPI, Request, Response
-from src.utils.logging_config import get_logger
 import httpx
+from fastapi import FastAPI, Request, Response
+
+from src.utils.logging_config import get_logger
 
 app = FastAPI()
 
@@ -53,4 +54,3 @@ async def proxy(full_path: str, request: Request):
         status_code=real_response.status_code,
         headers=dict(real_response.headers),
     )
-
