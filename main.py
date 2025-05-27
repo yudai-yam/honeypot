@@ -1,10 +1,12 @@
-import uvicorn
 import os
 
-from dotenv import load_dotenv, dotenv_values
+import uvicorn
+from dotenv import dotenv_values, load_dotenv
+
 from src.utils.logging_config import get_logger, setup_logging
 
 load_dotenv()
+
 
 def main():
 
@@ -20,4 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

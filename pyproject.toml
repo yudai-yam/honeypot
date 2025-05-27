@@ -10,7 +10,7 @@ authors = [
 ]
 description = "a honeypot for web application"
 readme = "README.rst"
-requires-python = ">=3.12, <4"
+requires-python = ">=3.9, <4"
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
