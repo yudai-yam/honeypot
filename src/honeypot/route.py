@@ -1,8 +1,9 @@
-import httpx
-from fastapi import FastAPI, Request, Response
 import os
 
-from dotenv import load_dotenv, dotenv_values
+import httpx
+from dotenv import dotenv_values, load_dotenv
+from fastapi import FastAPI, Request, Response
+
 from src.utils.logging_config import get_logger
 
 app = FastAPI()
@@ -13,8 +14,10 @@ logger = get_logger(__name__)
 # CONFIG: real server address
 REAL_BACKEND = "http://127.0.0.1:8000"
 
+
 def get_real_url(host: str, port: str) -> str:
     return "http://" + host + ":" + port
+
 
 def log_request(client_ip, path, method, headers, body):
     logger.info(
